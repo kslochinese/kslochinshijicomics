@@ -1,0 +1,451 @@
+@font-face {
+  font-family: "ShijiSong";
+  src: url("assets/fonts/font_regular.woff2?v=20261024-all-page-school") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ShijiSong";
+  src: url("assets/fonts/font_bold.woff2?v=20261024-all-page-school") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f8f7f3;
+  --paper-deep: #efeee7;
+  --ink: #293130;
+  --muted: #626a68;
+  --line: #d8d8d0;
+  --jade: #234c46;
+  --jade-dark: #183934;
+  --jade-soft: #e4ece8;
+  --danger: #8a3125;
+  --radius: 4px;
+  --content-width: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  min-width: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+button {
+  min-height: 44px;
+  margin: 0;
+  border: 1px solid var(--jade);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  background: var(--jade);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--jade-dark);
+}
+
+button:disabled {
+  border-color: #aeb5b2;
+  background: #aeb5b2;
+  color: #f6f7f6;
+  cursor: not-allowed;
+}
+
+button.secondary,
+button.quiet {
+  background: transparent;
+  color: var(--jade);
+}
+
+button.secondary:hover:not(:disabled),
+button.quiet:hover:not(:disabled) {
+  background: var(--jade-soft);
+  color: var(--jade-dark);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #bd8b36;
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+img[hidden] {
+  display: none;
+}
+
+.app-shell {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1rem, 4vw, 2.5rem) calc(2rem + env(safe-area-inset-bottom));
+}
+
+.loading-message,
+.empty-state,
+.noscript-message {
+  margin: 2rem auto;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: #fffefa;
+  color: var(--muted);
+}
+
+.noscript-message {
+  width: min(100% - 2rem, 620px);
+}
+
+.site-kicker,
+.reader-kicker {
+  margin: 0 0 0.35rem;
+  color: var(--jade);
+  font-family: "ShijiSong", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.home-heading {
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.home-copy {
+  min-width: 0;
+}
+
+.home-title,
+.reader-title,
+.reader-story-title,
+.story-list-title {
+  font-family: "ShijiSong", Georgia, serif;
+  color: #202725;
+}
+
+.home-title {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(1.4rem, 4.4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.author-line {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-family: "ShijiSong", Georgia, serif;
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+}
+
+.home-intro {
+  max-width: 42rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+}
+
+.primary-action {
+  width: min(100%, 220px);
+  margin-bottom: 2rem;
+}
+
+.story-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.story-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.story-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  width: 100%;
+  min-height: 58px;
+  border: 0;
+  border-radius: 0;
+  padding: 0.9rem 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.story-link:hover:not(:disabled) {
+  background: transparent;
+  color: var(--jade);
+}
+
+.story-link-title {
+  font-family: "ShijiSong", Georgia, serif;
+  font-size: 1.18rem;
+}
+
+.story-link-meta {
+  align-self: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+.story-range {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.cover-panel {
+  min-width: 0;
+}
+
+.cover-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: #fffefa;
+  object-fit: contain;
+}
+
+.school-credit {
+  margin: 2rem 0 0;
+  color: var(--jade);
+  font-family: "ShijiSong", Georgia, serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.asset-error {
+  margin: 0.75rem 0 0;
+  border-left: 3px solid var(--danger);
+  padding: 0.6rem 0.75rem;
+  background: #fff7f4;
+  color: var(--danger);
+  font-size: 0.92rem;
+}
+
+.asset-error[hidden] {
+  display: none;
+}
+
+.reading-help {
+  max-width: 52rem;
+  margin: clamp(2.5rem, 7vw, 5rem) 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+
+.reading-help h2 {
+  margin: 0 0 0.65rem;
+  font-family: "ShijiSong", Georgia, serif;
+  font-size: 1.18rem;
+}
+
+.reading-help p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.reader-view {
+  width: 100%;
+}
+
+.reader-header {
+  margin: 0 auto 1.2rem;
+  text-align: center;
+}
+
+.reader-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 3.4vw, 2.2rem);
+  line-height: 1.35;
+}
+
+.reader-story-title {
+  margin: 0.4rem 0 0;
+  color: var(--jade);
+  font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+  line-height: 1.4;
+}
+
+.comic-stage {
+  width: 100%;
+  scroll-margin-top: 1rem;
+}
+
+.comic-figure {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.comic-image {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  margin: 0 auto;
+  background: #fffefa;
+  object-fit: contain;
+}
+
+.reader-image-error {
+  width: min(100%, 960px);
+  margin: 0.8rem auto 0;
+}
+
+.reader-image-error button {
+  margin-top: 0.7rem;
+}
+
+.reader-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  width: min(100%, 960px);
+  margin: 1.35rem auto 0;
+  padding: 1rem 0 calc(1rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+}
+
+.reader-controls button:first-child {
+  justify-self: start;
+}
+
+.reader-controls button:last-child {
+  justify-self: end;
+}
+
+.reader-controls button {
+  width: 100%;
+}
+
+.reader-controls [data-action="previous"] {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.reader-controls [data-action="directory"] {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.reader-controls [data-action="next"] {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.page-indicator {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.story-finish {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  padding: 1.25rem 0 calc(1.25rem + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.story-finish p {
+  margin: 0 0 0.85rem;
+  font-family: "ShijiSong", Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.finish-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding-top: 1.25rem;
+  }
+
+  .home-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cover-panel {
+    order: -1;
+    width: min(100%, 460px);
+    margin: 0 auto;
+  }
+
+  .home-title {
+    max-width: none;
+  }
+
+  .reader-controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .reader-controls button {
+    padding-inline: 0.35rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .story-link {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .story-link-meta {
+    justify-self: start;
+    text-align: left;
+  }
+}
